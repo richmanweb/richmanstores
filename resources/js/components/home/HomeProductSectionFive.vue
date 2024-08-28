@@ -10,7 +10,7 @@
                 </swiper>
             </div>
             <div v-else>
-                <swiper ref="c2" :options="carouselOption" 
+                <swiper ref="c2" :options="carouselOption"
                 :slides-per-view=carouselOption.slidesPerView
                 :space-between=carouselOption.spaceBetween
                 :breakpoints= carouselOption.breakpoints
@@ -45,8 +45,10 @@ export default {
                     slidesPerView: 2,
                     spaceBetween: 12
                 },
+                //
                 // when window width is >= 320px
-                599: {
+                599
+                    : {
                     slidesPerView: 3,
                     spaceBetween: 16
                 },

@@ -24,7 +24,6 @@
 </head>
 <body>
     <div class="aiz-main-wrapper d-flex">
-
         <div class="flex-grow-1">
             @yield('content')
         </div>

@@ -2,15 +2,29 @@
     <div class="mega-menu aiz-main-wrap">
         <v-menu offset-y min-width="100%" open-on-hover class="mega-menu-cat"  transition="v-scroll-x-transition"  :elevation="6">
             <template v-slot:activator="{ props }">
-                <v-btn
-                    @click="goToCategoryPage"
-                    v-bind="props"
-                    class="btn-primary"
-                    >{{ $t("all_categories") }}</v-btn
-                >
+<!--                <v-btn-->
+<!--                    @click="goToCategoryPage"-->
+<!--                    v-bind="props"-->
+<!--                    class=""-->
+<!--                    >-->
+<!--                    {{ $t("all_categories") }}-->
+<!--                </v-btn>-->
+
+                <v-list-item class="flex-grow-0 flex-fill">
+                    <v-list-item-title >
+                        <dynamic-link
+                            append-class="text-reset fs-13 fw-700 opacity-80"
+                            @click="goToCategoryPage"
+                            v-bind="props"
+                        >
+                            {{ "HOOKAH" }}
+                        </dynamic-link>
+                    </v-list-item-title>
+                </v-list-item>
+
             </template>
-            <v-card style="box-shadow: 0px 10px 20px -20px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 10px 20px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 10px 20px -20px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));" class="">
-                <div class="v-container">
+            <div class="v-container">
+                <v-card style="box-shadow: 0px 10px 20px -20px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 10px 20px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 10px 20px -20px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));" class="">
                   <v-row v-if="categories.length" class="mega-menu-row">
                     <v-col
                     class="px-0"
@@ -29,8 +43,16 @@
                         </div>
                         <div outlined class="pa-6" v-else>
                             <v-row align="center">
-                                <v-col cols="8">
-                                    <h3 class="mb-3">
+                                <v-col cols="12">
+                                    <img
+                                        :width="'100%'"
+                                        :src="category.banner"
+                                        :height="'auto'"
+                                        :style="{ maxHeight: '150px', objectFit: 'cover', marginBottom: '10px' }"
+                                        alt="Category Banner" class="category-banner-image">
+                                </v-col>
+                                <v-col cols="12">
+                                    <h3 class="mb-3 text-center">
                                         <router-link
                                             :to="{
                                                 name: 'Category',
@@ -86,8 +108,8 @@
                         </div>
                     </v-col>
                 </v-row>
-                </div>
-            </v-card>
+                </v-card>
+            </div>
         </v-menu>
     </div>
 </template>

@@ -34,7 +34,7 @@
                 :src="productDetails.thumbnail_image"
                 :alt="productDetails.name"
                 @error="imageFallback($event)"
-                :class="['img-fit', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-180px' ]"
+                :class="['img-fit', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px' ]"
               >
             </router-link>
           </div>

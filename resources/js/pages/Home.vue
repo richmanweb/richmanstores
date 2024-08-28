@@ -60,12 +60,12 @@
     <!-- product section 6 -->
     <HomeProductSectionSix />
 
-    <div class="py-8 bg-grey-lighten-4 mt-8">
-      <v-container>
-        <HomeAboutText />
-        <HomeAllCategories />
-      </v-container>
-    </div>
+<!--    <div class="py-8 bg-grey-lighten-4 mt-8">-->
+<!--      <v-container>-->
+<!--        <HomeAboutText />-->
+<!--        <HomeAllCategories />-->
+<!--      </v-container>-->
+<!--    </div>-->
   </div>
 </template>
 

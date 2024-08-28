@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-5">
+  <div v-if="categories" class="mb-5">
     <v-container class="py-0 pe-0 pe-md-3 ps-3">
       <div class="d-flex justify-space-between align-center mb-4 pe-3 pe-md-0">
         <h2 class="">{{ $t('popular_categories') }}</h2>

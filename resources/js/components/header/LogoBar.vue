@@ -4,7 +4,7 @@
             <div class="d-flex align-center">
                 <div class="logo">
                     <router-link :to="{ name: 'Home' }" class="d-block lh-0">
-                        <img :src="appLogo" :alt="appName" height="60" />
+                        <img :src="appLogo" :alt="appName" height="90" />
                     </router-link>
                 </div>
                 <v-spacer />
@@ -32,13 +32,16 @@
                                 ></v-text-field>
                             </v-col>
                             <v-col cols="auto me-1" class="d-none d-md-block">
-                                <v-btn
-                                    class="btn-primary"
-                                    block
-                                    elevation="0"
-                                    @click.stop.prevent="search()"
-                                    >{{ $t("search") }}</v-btn
-                                >
+<!--                                <v-btn-->
+<!--                                    class="btn-primary"-->
+<!--                                    block-->
+<!--                                    elevation="0"-->
+<!--                                    @click.stop.prevent="search()"-->
+<!--                                    >{{ $t("search") }}</v-btn-->
+<!--                                >-->
+                                <i class="las la-search fs-30 lh-1 me-3 text-gray"
+                                   @click.stop.prevent="search()"
+                                ></i>
                             </v-col>
                         </v-row>
                     </v-form>
@@ -191,6 +194,30 @@
                 </v-btn>
 
                 <v-spacer class="d-none d-md-block" />
+
+
+<!--                <router-link-->
+<!--                    :to="{ name: 'Wishlist' }"-->
+<!--                >-->
+<!--                    <i class="las la-heart fs-30 lh-1 me-3 text-red px-2 opacity-80"></i>-->
+<!--                </router-link>-->
+                <router-link :to="{ name: 'Wishlist' }">
+                    <v-badge
+                        :content="getTotalWishlisted"
+                    color="red"
+                    overlap
+                    bordered
+                    class="px-2 opacity-80"
+                    >
+                    <i class="las la-heart fs-30 lh-1 text-red opacity-90"></i>
+                    </v-badge>
+                </router-link>
+
+<!--                <v-app-bar-nav-icon @click="drawer = true"-->
+<!--                                    class="d-flex d-sm-none text-gray"-->
+<!--                ></v-app-bar-nav-icon>-->
+                <i class="las la-bars fs-30 lh-4 pl-1 me-3 d-flex d-sm-none" @click="drawer = true" ></i>
+
                 <div class="d-none d-md-block">
                     <div class="d-flex align-center" v-if="!isAuthenticated">
                         <i class="las la-user fs-30 lh-1 me-3 opacity-70"></i>
@@ -208,9 +235,7 @@
                     </div>
                     <!-- dashboard -->
                     <div class="d-flex align-center" v-else>
-
                         <!-- notification -->
-
                         <div class="notification" v-if="currentUser.user_type == 'customer'">
                             <i class="las la-bell fs-30 lh-1 me-3 opacity-70" id="menu-activator" @click="fetNotification"></i>
 
@@ -245,6 +270,7 @@
 
                             </v-menu>
                         </div>
+
                         <!--  end of notification -->
                         <i class="las la-user fs-30 lh-1 me-3 opacity-70"></i>
                         <router-link
@@ -264,6 +290,26 @@
             </div>
         </v-container>
     </div>
+    <!-- Add a navigation bar -->
+    <v-navigation-drawer
+        v-model="drawer"
+        absolute
+        temporary
+    >
+        <v-list
+            nav
+            dense
+        >
+            <v-list-item-group
+            >
+                <v-list-item v-for="(item, index) in items">
+                    <v-list-item-title @click="tab = index">{{ item }}</v-list-item-title>
+                </v-list-item>
+
+            </v-list-item-group>
+        </v-list>
+    </v-navigation-drawer>
+    <!-- Navigation bar ends -->
 </template>
 
 <script>
@@ -289,10 +335,17 @@ export default {
         products: [],
         shops: [],
         notifications: [],
+        drawer: false,
+        tab: null,
+        items: [
+            'HOOKAH', 'Home', 'Offers', 'Best Sellers', 'About Us', 'Contact Us'
+        ],
     }),
     computed: {
         ...mapGetters("app", ["appLogo", "appName"]),
         ...mapGetters("auth", ["isAuthenticated","currentUser"]),
+        ...mapGetters("wishlist", ["getTotalWishlisted"]),
+
     },
     methods: {
         ...mapActions(["auth/logout"]),

@@ -1,6 +1,6 @@
 <template>
     <v-container class="py-0 px-0 px-md-4">
-        <swiper :options="carouselOption" 
+        <swiper :options="carouselOption"
         :slides-per-view=carouselOption.slidesPerView
           :space-between=carouselOption.spaceBetween
           :breakpoints= carouselOption.breakpoints>

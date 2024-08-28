@@ -27,7 +27,7 @@ const shopSetting = window.shopSetting;
 
 const app = createApp(TheShop);
 
-// color override 
+// color override
 const customDarkTheme = {
     colors: {
         primary: shopSetting.primaryColor,
