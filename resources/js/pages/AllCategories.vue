@@ -13,16 +13,16 @@
                     </div>
                     <v-card outlined class="pa-6" v-else variant="outlined">
                         <v-row align="center">
-                            <v-col cols="4">
-                                <router-link :to="{ name: 'Category', params: {categorySlug: category.slug}}" class="text-reset">
-                                    <img
-                                        class="img-fluid"
-                                        :src="category.banner"
-                                        :alt="category.name"
-                                        @error="imageFallback($event)"
-                                    />
-                                </router-link>
-                            </v-col>
+<!--                            <v-col cols="4">-->
+<!--                                <router-link :to="{ name: 'Category', params: {categorySlug: category.slug}}" class="text-reset">-->
+<!--                                    <img-->
+<!--                                        class="img-fluid"-->
+<!--                                        :src="category.banner"-->
+<!--                                        :alt="category.name"-->
+<!--                                        @error="imageFallback($event)"-->
+<!--                                    />-->
+<!--                                </router-link>-->
+<!--                            </v-col>-->
                             <v-col cols="8">
                                 <h3 class="mb-3">
                                     <router-link :to="{ name: 'Category', params: {categorySlug: category.slug}}" class="text-reset">{{ category.name }}</router-link>
