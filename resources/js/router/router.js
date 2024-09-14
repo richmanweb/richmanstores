@@ -27,7 +27,7 @@ if (Mixin.methods.is_addon_activated("multi_vendor")) {
 routes = [...routes, ...PageRoutes];
 
 const router = createRouter({
-    mode: "history",
+    // mode: "history",
     history: createWebHistory(),
     base: "/",
     scrollBehavior(to, from, savedPosition) {
