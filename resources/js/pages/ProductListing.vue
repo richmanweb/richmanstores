@@ -1,10 +1,10 @@
 <template>
   <div>
     <v-container class="pt-md-7 px-0 px-md-3 pb-0">
-<!--      <banner-->
-<!--        :loading="false"-->
-<!--        :banner="$store.getters['app/banners'].listing_page"-->
-<!--      />-->
+      <banner
+        :loading="false"
+        :banner="$store.getters['app/banners'].listing_page"
+      />
     </v-container>
     <v-container class="pt-0">
       <v-row
@@ -399,7 +399,7 @@ export default {
     metaDescription(newDescription) {
       this.updateHead(this.metaTitle, newDescription);
     }
-
+  
   },
 
   methods: {
