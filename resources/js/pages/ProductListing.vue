@@ -399,7 +399,7 @@ export default {
     metaDescription(newDescription) {
       this.updateHead(this.metaTitle, newDescription);
     }
-  
+
   },
 
   methods: {

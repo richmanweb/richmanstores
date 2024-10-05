@@ -30,12 +30,21 @@
               :to="{ name: 'ProductDetails', params: {slug: productDetails.slug}}"
               class="text-reset d-block lh-0 text-center"
             >
-              <img
-                :src="productDetails.thumbnail_image"
-                :alt="productDetails.name"
-                @error="imageFallback($event)"
-                :class="['img-fit', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px' ]"
-              >
+<!--              <img-->
+<!--                :src="productDetails.thumbnail_image"-->
+<!--                :alt="productDetails.name"-->
+<!--                @error="imageFallback($event)"-->
+<!--                :class="['img-fit', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px' ]"-->
+<!--              >-->
+
+                <img
+                    :src="currentImage"
+                    :alt="productDetails.name"
+                    @error="imageFallback($event)"
+                    @mouseover="changeImage('hover')"
+                    @mouseleave="changeImage('default')"
+                    :class="['img-fit', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"
+                >
             </router-link>
           </div>
         </v-col>
@@ -219,7 +228,11 @@ export default {
     noBorder: { type: Boolean, default: false },
     productDetails: { type: Object, required: true, default: {} },
   },
-  data: () => ({}),
+    data() {
+        return {
+            currentImage: this.productDetails.thumbnail_image
+        };
+    },
   computed: {
     ...mapGetters("app", ["generalSettings"]),
     ...mapGetters("wishlist", ["isThisWishlisted"]),
@@ -254,6 +267,17 @@ export default {
         cart_id: cart_id,
       });
     },
+      changeImage(state) {
+          if (state === 'hover') {
+              this.currentImage = this.productDetails.hover_image || this.productDetails.thumbnail_image;
+              console.log(this.productDetails.hover_image);
+          } else {
+              this.currentImage = this.productDetails.thumbnail_image;
+          }
+      },
+      imageFallback(event) {
+          event.target.src = 'path_to_fallback_image.jpg';
+      },
   },
 };
 </script>

@@ -1,10 +1,10 @@
 <template>
     <div class="logobar">
-        <v-container class="pb-md-0 pt-4">
+        <v-container class="pb-md-0 pt-2">
             <div class="d-flex align-center">
                 <div class="logo">
                     <router-link :to="{ name: 'Home' }" class="d-block lh-0">
-                        <img :src="appLogo" :alt="appName" height="90" />
+                        <img :src="appLogo" :alt="appName" height="75" />
                     </router-link>
                 </div>
                 <v-spacer />
