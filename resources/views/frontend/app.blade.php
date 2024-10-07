@@ -56,6 +56,7 @@
             font-weight: 400;
             line-height: 1.6;
             font-size: 14px;
+            overflow-x: hidden;
         }
         .header-sticky{
             z-index: 8;
