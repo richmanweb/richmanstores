@@ -18,7 +18,7 @@
       class="re-payment fs-12 c-pointer text-primary ml-4"
         @click.stop="RepaymentDialogShow = true"
         > {{$t('pay_now')  }}</div>
-  
+
       </span>
     </div>
 
@@ -48,7 +48,7 @@
               <v-col cols="6">
                 <v-list-item-title >{{ orderDetails.user.name }}</v-list-item-title>
               </v-col>
-            </v-row>            
+            </v-row>
           </v-list-item>
 
           <v-list-item>
@@ -59,7 +59,7 @@
               <v-col cols="6">
                 <v-list-item-title >{{ orderDetails.user.email }}</v-list-item-title>
               </v-col>
-            </v-row> 
+            </v-row>
           </v-list-item>
           <v-list-item>
             <v-row v-if="orderDetails.orders[0].type_of_delivery != 'pickup'">
@@ -73,7 +73,7 @@
               <span class="lh-1-6">{{ orderDetails.shipping_address.phone }}</span>
             </v-list-item-title>
               </v-col>
-            </v-row> 
+            </v-row>
           </v-list-item>
         </v-list>
       </v-col>
@@ -91,7 +91,7 @@
               <v-col cols="6">
                 <v-list-item-title class="align-end">{{ format_price(orderDetails.grand_total) }}</v-list-item-title>
               </v-col>
-            </v-row>            
+            </v-row>
           </v-list-item>
 
           <v-list-item>
@@ -102,7 +102,7 @@
               <v-col cols="6">
                 <v-list-item-title class="align-end text-capitalize">{{ $t(orderDetails.orders[0].payment_type) }}</v-list-item-title>
               </v-col>
-            </v-row> 
+            </v-row>
           </v-list-item>
 
           <!-- show offline payment data -->
@@ -127,7 +127,7 @@
               </span>
             </v-list-item-title>
               </v-col>
-            </v-row>            
+            </v-row>
           </v-list-item>
           <!-- show offline payment data -->
 
@@ -139,7 +139,7 @@
               <v-col cols="6">
                 <v-list-item-title class="align-end text-capitalize">{{orderDetails.orders[0].type_of_delivery == 'pickup' ? 'pickup' : orderDetails.orders[0].delivery_type.replaceAll('_',' ') }}</v-list-item-title>
               </v-col>
-            </v-row> 
+            </v-row>
           </v-list-item>
 
           <v-list-item>
@@ -154,7 +154,7 @@
               <span class="lh-1-6">{{ orderDetails.billing_address.phone }}</span>
             </v-list-item-title>
               </v-col>
-            </v-row> 
+            </v-row>
             <v-row v-else>
               <v-col cols="6">
                 <v-list-item-title class="fw-700 align-self-baseline">{{ $t('pickup_point') }} :</v-list-item-title>
@@ -166,9 +166,9 @@
               <span class="lh-1-6">{{ orderDetails.orders[0].pickup_point?.phone }}</span>
             </v-list-item-title>
               </v-col>
-            </v-row> 
+            </v-row>
           </v-list-item>
-          
+
         </v-list>
       </v-col>
     </v-row>
@@ -190,7 +190,7 @@
 import { mapActions, mapGetters, mapMutations } from "vuex";
 
 import OrderPackage from "./OrderPackage.vue";
-import RepaymentDialog from "../payment/RepaymentDialog.vue";
+import RepaymentDialog from "../payment/RePaymentDialog.vue";
 export default {
   components: { OrderPackage, RepaymentDialog },
   computed: {
@@ -218,7 +218,7 @@ export default {
             orders.forEach(order=>{
                 this.multipleShop(order)
             })
-           
+
         },
 
         multipleShop(order){
@@ -232,7 +232,7 @@ export default {
         },
 
 
-    checkout() {    
+    checkout() {
         this.$router.push({ name: "Checkout" }).catch((e) => {
           if (this.$route.name == "Checkout") {
             this.updateCartDrawer(false);
