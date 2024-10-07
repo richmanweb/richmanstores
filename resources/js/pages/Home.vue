@@ -83,7 +83,7 @@ import HomeProductSectionTwo from "../components/home/HomeProductSectionTwo.vue"
 import HomeBannerSectionFour from "../components/home/HomeBannerSectionFour.vue";
 import HomeBannerSectionOne from "../components/home/HomeBannerSectionOne.vue";
 import HomeBannerSectionThree from "../components/home/HomeBannerSectionThree.vue";
-import HomeBannerSectiontwo from "../components/home/HomeBannerSectiontwo.vue";
+import HomeBannerSectiontwo from "../components/home/HomeBannerSectionTwo.vue";
 
 import HomeAboutText from "../components/home/HomeAboutText.vue";
 import HomeAllCategories from "../components/home/HomeAllCategories.vue";
