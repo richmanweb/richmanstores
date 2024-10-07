@@ -40,7 +40,7 @@
             size="x-small"
           >
           </v-rating>
-           
+
           <span class="ms-3 opacity-50"> ({{ productDetails.review_summary.total_count }} {{ $t("ratings") }}) </span>
 
           <!-- todo:: message seller -->
@@ -423,7 +423,7 @@
                   <span class="fs-12">{{ $t("out_of_stock") }}</span>
                 </template>
               </div>
-              <button 
+              <button
                 v-if="generalSettings.support_chat"
                 class="primary-text d-flex align-center"
                 @click.stop="updateChatWindow(true)"
@@ -558,7 +558,7 @@
             block
             @click="addCart"
           >{{ $t("add_to_cart") }}</v-btn>
- 
+
         </div>
         <div
           class="my-5"
@@ -595,7 +595,7 @@
 import { mapActions, mapGetters, mapMutations } from "vuex";
 import ConversationDialog from "../product/ConversationDialog.vue";
 import SocialShare from "../product/SocialShare.vue";
-import ProductGallery from "../product/productgallery.vue";
+import ProductGallery from "../product/ProductGallery.vue";
 export default {
   props: {
     isLoading: { type: Boolean, required: true, default: true },
@@ -731,7 +731,7 @@ export default {
       }
     },
     optionChosen() {
-     
+
       let chooseOptions = this.chooseOptions.filter((el) => el != "");
       if (
         this.productDetails.variation_options.length === chooseOptions.length
