@@ -1,6 +1,6 @@
 <template>
-  <footer class="bg-grey-darken-4 pt-8 text-white pb-14 pb-md-10 pb-lg-0">
-    <v-container class="main-footer">
+  <footer class="footer-background pt-8 text-white pb-14 pb-md-10 pb-lg-0">
+    <v-container class="main-footer footer-content">
       <v-row>
         <v-col
           class=""
@@ -582,3 +582,31 @@ export default {
 
 };
 </script>
+
+
+<style scoped>
+.footer-background {
+    position: relative;
+    background-image: url('https://richman-official.com/wp-content/uploads/2024/01/Banner-2.webp?id=3172');
+    background-size: cover;
+    background-position: center;
+}
+
+.footer-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay color with opacity */
+    z-index: 1;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2; /* Ensure content appears above the overlay */
+    color: white; /* Adjust the text color to ensure it's readable */
+    padding: 20px; /* Adjust padding if necessary */
+}
+</style>

@@ -225,7 +225,7 @@ export default {
   props: {
     isLoading: { type: Boolean, required: true, default: true },
     boxStyle: { type: String, default: "one" },
-    noBorder: { type: Boolean, default: true },
+    noBorder: { type: Boolean, default: false },
     productDetails: { type: Object, required: true, default: {} },
   },
     data() {
