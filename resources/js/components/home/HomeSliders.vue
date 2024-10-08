@@ -1,7 +1,7 @@
 <template>
     <div class="mb-5">
 <!--    <v-container class="pt-md-6 pb-0 px-0 px-md-3">-->
-        <v-container fluid class="pt-md-6 pb-0 px-0">
+        <v-container fluid class="pt-0 pb-0 px-0">
 
         <v-row
         class="gutters-7 md-gutters-10 lh-0"

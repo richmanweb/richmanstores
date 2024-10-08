@@ -317,7 +317,7 @@ export default {
         // setInterval(() => {
         //   this.fetchProductQuerries();
         // }, 8000);
-        
+
         // set default language
         if(!localStorage.getItem("shopSelectedLanguage")){
             localStorage.setItem("shopSelectedLanguage", shopSetting.appLanguage);
