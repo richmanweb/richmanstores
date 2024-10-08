@@ -39,8 +39,8 @@
         </template>
         <div class="" v-show="!isLoading">
             <!--  -->
-            
-                <swiper 
+
+                <swiper
                     :style="{
                         '--swiper-navigation-color': '#fff',
                         '--swiper-pagination-color': '#fff',
@@ -53,13 +53,13 @@
                 >
                     <swiper-slide v-for="(photo, i) in galleryImgaes" :key="i">
                         <!-- <img :src="selectedVariation.image ? selectedVariation.image: photo"/> -->
-                      
+
                         <ProductImageZoom :imageSrc="photo" />
                     </swiper-slide>
                 </swiper>
-            
 
-           
+
+
             <swiper
                 @swiper="setThumbsSwiper"
                 :spaceBetween="10"
