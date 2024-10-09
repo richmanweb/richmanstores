@@ -10,7 +10,7 @@
     <HomeProductSectionOne />
 
     <!-- home banner 1 -->
-    <HomeBannerSectionOne />
+<!--    <HomeBannerSectionOne />-->
 
     <!-- shop section 1 -->
     <HomeShopSectionOne v-if="is_addon_activated('multi_vendor')" />
@@ -37,7 +37,7 @@
     <HomeProductSectionThree />
 
     <!-- home banner 3 -->
-    <HomeBannerSectionThree />
+<!--    <HomeBannerSectionThree />-->
 
     <!-- shop section 4 -->
     <HomeShopSectionFour v-if="is_addon_activated('multi_vendor')" />
@@ -55,7 +55,7 @@
     <HomeProductSectionFive />
 
     <!-- home banner 4 -->
-    <HomeBannerSectionFour />
+<!--    <HomeBannerSectionFour />-->
 
     <!-- product section 6 -->
     <HomeProductSectionSix />
