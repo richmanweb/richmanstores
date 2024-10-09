@@ -16,7 +16,6 @@
   </header>
 </template>
 
-
 <!--<style scoped>-->
 <!--.header-background {-->
 <!--    background-image: url('https://richman-official.com/wp-content/uploads/2024/01/sm-w-bg-1.jpg');-->

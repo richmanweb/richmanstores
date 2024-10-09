@@ -43,7 +43,7 @@
                     @error="imageFallback($event)"
                     @mouseover="changeImage('hover')"
                     @mouseleave="changeImage('default')"
-                    :class="['img-fit', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"
+                    :class="['img-fit h-100', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"
                 >
             </router-link>
           </div>

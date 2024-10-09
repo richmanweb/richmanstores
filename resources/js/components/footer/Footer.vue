@@ -606,7 +606,7 @@ export default {
 .footer-content {
     position: relative;
     z-index: 2; /* Ensure content appears above the overlay */
-    color: white; /* Adjust the text color to ensure it's readable */
+    color: #fff; /* Adjust the text color to ensure it's readable */
     padding: 20px; /* Adjust padding if necessary */
 }
 </style>

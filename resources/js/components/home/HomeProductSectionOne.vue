@@ -77,11 +77,11 @@ export default {
         },
         // when window width is >= 640px
         1264: {
-          slidesPerView: 5,
+          slidesPerView: 4,
           spaceBetween: 20,
         },
         1904: {
-          slidesPerView: 6,
+          slidesPerView: 5,
           spaceBetween: 20,
         },
       },
