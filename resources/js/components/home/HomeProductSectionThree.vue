@@ -15,11 +15,11 @@
                 :space-between=carouselOption.spaceBetween
                 :breakpoints= carouselOption.breakpoints
                 >
-                    <swiper-slide>
-                        <dynamic-link :to="banner.link" append-class="text-reset d-block lh-0" >
-                            <img :src="banner.img" class="img-fit w-100 h-333px border rounded" />
-                        </dynamic-link>
-                    </swiper-slide>
+<!--                    <swiper-slide>-->
+<!--                        <dynamic-link :to="banner.link" append-class="text-reset d-block lh-0" >-->
+<!--                            <img :src="banner.img" class="img-fit w-100 h-333px border rounded" />-->
+<!--                        </dynamic-link>-->
+<!--                    </swiper-slide>-->
                     <swiper-slide v-for="(product, i) in products" :key="i" >
                         <product-box :product-details="product" :is-loading="loading" />
                     </swiper-slide>
