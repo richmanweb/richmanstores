@@ -282,27 +282,27 @@
                 </v-select>
               </v-col>
 
-                    <v-col>
-                        <v-btn
-                            icon
-                            :class="{ 'current-variation': columns === 3 }"
-                            class="mx-1"
-                            @click="setColumns(3)"
-                            aria-label="Grid view 3"
-                        >
-                            <v-icon>las la-table</v-icon> <!-- Replace with your preferred icon -->
-                        </v-btn>
+                <v-col class="d-flex justify-end">
+                    <v-btn
+                        icon
+                        :class="{ 'current-variation': columns === 3 }"
+                        class="mx-1 d-none d-md-flex"
+                        @click="setColumns(3)"
+                        aria-label="Grid view 3"
+                    >
+                        <v-icon>las la-th</v-icon> <!-- Replace with your preferred icon -->
+                    </v-btn>
 
-                        <v-btn
-                            icon
-                            :class="{ 'current-variation': columns === 4 }"
-                            class="mx-1"
-                            @click="setColumns(4)"
-                            aria-label="Grid view 4"
-                        >
-                            <v-icon>las la-th</v-icon>
-                        </v-btn>
-                    </v-col>
+                    <v-btn
+                        icon
+                        :class="{ 'current-variation': columns === 4 }"
+                        class="mx-1 d-none d-md-flex"
+                        @click="setColumns(4)"
+                        aria-label="Grid view 4"
+                    >
+                        <v-icon>las la-table</v-icon>
+                    </v-btn>
+                </v-col>
             </v-row>
             <div class="mb-7">
               <v-row
