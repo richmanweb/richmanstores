@@ -1,5 +1,6 @@
 <template>
-  <div class="custom-bg">
+<!--    <div class="custom-bg">-->
+    <div>
 <!--    <v-container class="pt-md-7 px-0 px-md-3 pb-0">-->
 <!--      <banner-->
 <!--        :loading="false"-->
