@@ -1,10 +1,10 @@
 <template>
     <div class="mb-5">
-        <v-container class="py-0">
+        <v-container class="py-4">
             <h2 class="mb-4">{{ title }}</h2>
             <v-row class="gutters-10">
                 <v-col cols="12" lg="3" sm="6">
-                   
+
                     <div v-if="loading">
                         <v-skeleton-loader type="image" height="310" />
                     </div>
@@ -23,7 +23,7 @@
                         </swiper>
                     </div>
                     <div v-else>
-                        <swiper ref="c2" :options="carouselOption" 
+                        <swiper ref="c2" :options="carouselOption"
                         :slides-per-view=carouselOption.slidesPerView
                         :space-between=carouselOption.spaceBetween
                         :breakpoints= carouselOption.breakpoints

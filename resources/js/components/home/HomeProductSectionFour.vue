@@ -1,6 +1,6 @@
 <template>
     <div class="mb-5">
-        <v-container class="py-0">
+        <v-container class="py-4">
             <h2 class="mb-4">{{ title }}</h2>
             <div v-if="loading">
                 <swiper ref="c1" class="" :options="carouselOption">
@@ -10,7 +10,7 @@
                 </swiper>
             </div>
             <div v-else>
-                <swiper ref="c2" :options="carouselOption" 
+                <swiper ref="c2" :options="carouselOption"
                 :slides-per-view=carouselOption.slidesPerView
                 :space-between=carouselOption.spaceBetween
                 :breakpoints= carouselOption.breakpoints
