@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <v-container class="pt-md-7 px-0 px-md-3 pb-0">
-      <banner
-        :loading="false"
-        :banner="$store.getters['app/banners'].listing_page"
-      />
-    </v-container>
+  <div class="custom-bg">
+<!--    <v-container class="pt-md-7 px-0 px-md-3 pb-0">-->
+<!--      <banner-->
+<!--        :loading="false"-->
+<!--        :banner="$store.getters['app/banners'].listing_page"-->
+<!--      />-->
+<!--    </v-container>-->
     <v-container class="pt-0">
       <v-row
         no-gutters
@@ -280,6 +280,13 @@
                   </template>
                 </v-select>
               </v-col>
+
+                <v-row>
+                    <v-col>
+                        <v-btn @click="setColumns(3)">Show 3 Products</v-btn>
+                        <v-btn @click="setColumns(4)">Show 4 Products</v-btn>
+                    </v-col>
+                </v-row>
             </v-row>
             <div class="mb-7">
               <v-row
@@ -289,6 +296,7 @@
                 <v-col
                   v-for="(product, i) in products"
                   :key="i"
+                  :cols="columns"
                 >
                   <product-box
                     :product-details="product"
@@ -376,6 +384,8 @@ export default {
       {},
     ],
     sortingDefault: {},
+    columns: 4, // Default to 4 columns
+
   }),
   components: {
     ShowMore,
@@ -403,6 +413,9 @@ export default {
   },
 
   methods: {
+  setColumns(num) {
+      this.columns = num; // Update the number of columns based on user selection
+  },
     updateHead(title, description) {
       useHead({
         title: title,
@@ -613,5 +626,12 @@ export default {
   .w-lg-270px {
     width: 270px;
   }
+}
+
+.custom-bg {
+    background-image: url('https://richman-official.com/wp-content/uploads/2024/01/sm-w-bg-1.jpg?id=3742');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
 }
 </style>
