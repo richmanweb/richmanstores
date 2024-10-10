@@ -216,7 +216,7 @@
 <!--                <v-app-bar-nav-icon @click="drawer = true"-->
 <!--                                    class="d-flex d-sm-none text-gray"-->
 <!--                ></v-app-bar-nav-icon>-->
-                <i class="las la-bars fs-30 lh-4 pl-1 me-3 d-flex d-sm-none" @click="drawer = true" ></i>
+<!--                <i class="las la-bars fs-30 lh-4 pl-1 me-3 d-flex d-sm-none" @click="drawer = true" ></i>-->
 
                 <div class="d-none d-md-block">
                     <div class="d-flex align-center" v-if="!isAuthenticated">
@@ -291,24 +291,24 @@
         </v-container>
     </div>
     <!-- Add a navigation bar -->
-    <v-navigation-drawer
-        v-model="drawer"
-        absolute
-        temporary
-    >
-        <v-list
-            nav
-            dense
-        >
-            <v-list-item-group
-            >
-                <v-list-item v-for="(item, index) in items">
-                    <v-list-item-title @click="tab = index">{{ item }}</v-list-item-title>
-                </v-list-item>
+<!--    <v-navigation-drawer-->
+<!--        v-model="drawer"-->
+<!--        absolute-->
+<!--        temporary-->
+<!--    >-->
+<!--        <v-list-->
+<!--            nav-->
+<!--            dense-->
+<!--        >-->
+<!--            <v-list-item-group-->
+<!--            >-->
+<!--                <v-list-item v-for="(item, index) in items">-->
+<!--                    <v-list-item-title @click="tab = index">{{ item }}</v-list-item-title>-->
+<!--                </v-list-item>-->
 
-            </v-list-item-group>
-        </v-list>
-    </v-navigation-drawer>
+<!--            </v-list-item-group>-->
+<!--        </v-list>-->
+<!--    </v-navigation-drawer>-->
     <!-- Navigation bar ends -->
 </template>
 
