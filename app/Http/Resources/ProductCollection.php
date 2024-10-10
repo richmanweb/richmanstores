@@ -15,6 +15,7 @@ class ProductCollection extends ResourceCollection
                     'name' => $data->getTranslation('name'),
                     'slug' => $data->slug,
                     'thumbnail_image' => api_asset($data->thumbnail_img),
+                    'photos' => $this->convertPhotos($data->photos),
                     'base_price' => (double) product_base_price($data),
                     'base_discounted_price' => (double) product_discounted_base_price($data),
                     'stock' => $data->stock,
@@ -38,4 +39,27 @@ class ProductCollection extends ResourceCollection
             'status' => 200
         ];
     }
+
+//    protected function convertPhotos(){
+//        $result = array();
+//        foreach (explode(',', $this->photos) as $item) {
+//            array_push($result, api_asset($item));
+//        }
+//        return $result;
+//    }
+
+
+    protected function convertPhotos($photos) // Accept the photos as a parameter
+    {
+        $result = [];
+        // Check if $photos is a string and split if necessary
+        if (is_string($photos)) {
+            foreach (explode(',', $photos) as $item) {
+                array_push($result, api_asset(trim($item))); // Trim spaces to avoid issues
+            }
+        }
+        return $result;
+    }
+
+
 }

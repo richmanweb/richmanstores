@@ -1,5 +1,5 @@
 <template>
-  <div :class="[ boxStyle == 'two' ? 'product-box-two' : boxStyle == 'three' ? 'product-box-three' : boxStyle == 'four' ? 'product-box-four' : 'product-box-one']">
+  <div class="my-1"  :class="[ boxStyle == 'two' ? 'product-box-two' : boxStyle == 'three' ? 'product-box-three' : boxStyle == 'four' ? 'product-box-four' : 'product-box-one']">
     <div v-if="isLoading">
       <v-skeleton-loader
         type="image"
@@ -9,6 +9,7 @@
     <div
       :class="['overflow-hidden', {'rounded border':!noBorder}]"
       v-else
+      class="shadow"
     >
       <v-row
         align="center"
@@ -37,14 +38,47 @@
 <!--                :class="['img-fit', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px' ]"-->
 <!--              >-->
 
-                <img
-                    :src="currentImage"
-                    :alt="productDetails.name"
-                    @error="imageFallback($event)"
-                    @mouseover="changeImage('hover')"
-                    @mouseleave="changeImage('default')"
-                    :class="['img-fit h-100', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"
-                >
+<!--                <img-->
+<!--                    :src="currentImage"-->
+<!--                    :alt="productDetails.name"-->
+<!--                    @error="imageFallback($event)"-->
+<!--                    @mouseover="changeImage('hover')"-->
+<!--                    @mouseleave="changeImage('default')"-->
+<!--                    :class="['img-fit h-100', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"-->
+<!--                >-->
+
+                <!-- Using Vuetify's v-hover -->
+                <v-hover v-slot:default="{ isHovering }">
+                    <v-img
+                        :src="isHovering ? hoverImage : thumbnailImage"
+                        :alt="productDetails.name"
+                        :class="['img-fit h-100', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"
+                        @error="imageFallback($event)"
+                    />
+                </v-hover>
+
+<!--                <v-hover v-slot="{ isHovering }">-->
+<!--                    <v-img-->
+<!--                        :src="isHovering ? hoverImage : thumbnailImage"-->
+<!--                        :alt="productDetails.name"-->
+<!--                        :class="['img-fit h-100', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"-->
+<!--                        @error="imageFallback($event)"-->
+<!--                    />-->
+<!--                    <p>{{ isHovering ? 'Hovering' : 'Not Hovering' }}</p> &lt;!&ndash; Debugging &ndash;&gt;-->
+<!--                </v-hover>-->
+
+
+
+
+<!--                <v-hover v-slot="{ hover }">-->
+<!--                    <v-img-->
+<!--                        :src="hover ? hoverImage : thumbnailImage"-->
+<!--                        :alt="productDetails.name"-->
+<!--                        :class="['img-fit h-100', boxStyle === 'two' ? 'size-70px' : boxStyle === 'three' ? 'size-150px' : boxStyle === 'four' ? 'size-130px' : 'h-210px']"-->
+<!--                        @error="imageFallback"-->
+<!--                    />-->
+<!--                </v-hover>-->
+
             </router-link>
           </div>
         </v-col>
@@ -228,11 +262,15 @@ export default {
     noBorder: { type: Boolean, default: false },
     productDetails: { type: Object, required: true, default: {} },
   },
-    data() {
-        return {
-            currentImage: this.productDetails.thumbnail_image
-        };
-    },
+    // data() {
+    //     return {
+    //         currentImage: this.$props.productDetails.thumbnail_image,
+    //         hoverImage: this.$props.productDetails.photos,
+    //         fallbackImage: this.$props.productDetails.thumbnail_image,
+    //         thumbnailImage: this.$props.productDetails.thumbnail_image, // Default image
+    //
+    //     };
+    // },
   computed: {
     ...mapGetters("app", ["generalSettings"]),
     ...mapGetters("wishlist", ["isThisWishlisted"]),
@@ -244,6 +282,12 @@ export default {
         this.$props.productDetails.base_discounted_price
       );
     },
+      hoverImage() {
+          return this.$props.productDetails.photos[0];
+      },
+      thumbnailImage() {
+          return this.$props.productDetails.thumbnail_image;
+      },
   },
   methods: {
     ...mapActions("wishlist", ["addNewWishlist", "removeFromWishlist"]),
@@ -269,15 +313,19 @@ export default {
     },
       changeImage(state) {
           if (state === 'hover') {
-              this.currentImage = this.productDetails.hover_image || this.productDetails.thumbnail_image;
-              console.log(this.productDetails.hover_image);
+              this.currentImage = this.$props.productDetails.photos[0];
+
+              console.log(this.$props.productDetails);
+
           } else {
-              this.currentImage = this.productDetails.thumbnail_image;
+              this.currentImage = this.$props.productDetails.thumbnail_image;
           }
       },
       imageFallback(event) {
-          event.target.src = 'path_to_fallback_image.jpg';
+          event.target.src = this.$props.productDetails.thumbnail_image;
       },
   },
 };
+
+
 </script>

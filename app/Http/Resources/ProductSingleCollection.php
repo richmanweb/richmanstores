@@ -27,7 +27,7 @@ class ProductSingleCollection extends JsonResource
             ],
             'photos' => $this->convertPhotos($this),
             'thumbnail_image' => api_asset($this->thumbnail_img),
-            'hover_image' => api_asset($this->hover_image),
+//            'hover_image' => api_asset($this->hover_image),
             'tags' => explode(',', $this->tags),
             'featured' => (integer) $this->featured,
             'stock' => (integer) $this->stock,
