@@ -38,24 +38,24 @@
 <!--                :class="['img-fit', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px' ]"-->
 <!--              >-->
 
-<!--                <img-->
-<!--                    :src="currentImage"-->
-<!--                    :alt="productDetails.name"-->
-<!--                    @error="imageFallback($event)"-->
-<!--                    @mouseover="changeImage('hover')"-->
-<!--                    @mouseleave="changeImage('default')"-->
-<!--                    :class="['img-fit h-100', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"-->
-<!--                >-->
+                <img
+                    :src="currentImage"
+                    :alt="productDetails.name"
+                    @error="imageFallback($event)"
+                    @mouseover="changeImage('hover')"
+                    @mouseleave="changeImage('default')"
+                    :class="['img-fit h-100', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"
+                >
 
                 <!-- Using Vuetify's v-hover -->
-                <v-hover v-slot:default="{ isHovering }">
-                    <v-img
-                        :src="isHovering ? hoverImage : thumbnailImage"
-                        :alt="productDetails.name"
-                        :class="['img-fit h-100', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"
-                        @error="imageFallback($event)"
-                    />
-                </v-hover>
+<!--                <v-hover v-slot:default="{ isHovering }">-->
+<!--                    <v-img-->
+<!--                        :src="isHovering ? hoverImage : thumbnailImage"-->
+<!--                        :alt="productDetails.name"-->
+<!--                        :class="['img-fit h-100', boxStyle == 'two' ? 'size-70px' : boxStyle == 'three' ? 'size-150px' : boxStyle == 'four' ? 'size-130px' : 'h-210px']"-->
+<!--                        @error="imageFallback($event)"-->
+<!--                    />-->
+<!--                </v-hover>-->
 
 <!--                <v-hover v-slot="{ isHovering }">-->
 <!--                    <v-img-->
@@ -321,9 +321,9 @@ export default {
               this.currentImage = this.$props.productDetails.thumbnail_image;
           }
       },
-      imageFallback(event) {
-          event.target.src = this.$props.productDetails.thumbnail_image;
-      },
+      // imageFallback(event) {
+      //     event.target.src = this.$props.productDetails.thumbnail_image;
+      // },
   },
 };
 
