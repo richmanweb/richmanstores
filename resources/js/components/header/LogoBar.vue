@@ -183,7 +183,7 @@
 
                 <v-btn
                     style="height: 40px; width: 40px; min-width: 0 !important;"
-                    class="d-md-none border-gray-300 rounded-circle mx-auto mobile-search-button"
+                    class="d-md-none border-0 mx-auto mobile-search-button"
                     fab
                     variant="outlined"
                     small
